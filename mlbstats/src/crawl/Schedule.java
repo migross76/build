@@ -40,9 +40,11 @@ public class Schedule {
         stmt.setString(4, BBRefUtil.matchStanding(columns.get(2))); // Date
         stmt.setBoolean(5, !columns.get(5).equals("@")); // Home/Away
         stmt.setString(6, BBRefUtil.matchTeamID(columns.get(6), _teams, T.yearID()).teamID()); // Opponent
-        stmt.setBoolean(7, columns.get(7).equals("W")); // Win/Loss
-        boolean win = columns.get(7).equals("W");
-        if (!win && !columns.get(7).equals("L")) { System.err.println("Not a win or loss : " + columns.get(7)); }
+        boolean win = columns.get(7).startsWith("W"); // "W" or "W-wo" (walk-off)
+        if (!win && !columns.get(7).startsWith("L")) { // "L" or "L-wo" (walk-off)
+          System.err.println("Not a win or loss : " + columns.get(7));
+        }
+        stmt.setBoolean(7, win); // Win/Loss
         stmt.setInt(8, Integer.parseInt(columns.get(8))); // RS
         stmt.setInt(9, Integer.parseInt(columns.get(9))); // RA
         stmt.executeUpdate();

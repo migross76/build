@@ -1,0 +1,76 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:s="urn:import:strat.client">
+	<ui:style type='strat.client.MainPanel.MyStyle'>
+	  @external .gwt-Label;
+	  
+	  .main { }
+	  .main .panel { vertical-align: top; }
+      .main .scoreboard { width: 100%; }
+      .main .scoreboard .header { text-align: center; }
+      .main .scoreboard .score { text-align: center; font-size: 24px; font-weight: bold; }
+      .main .header { font-weight: bold; }
+      .main .info { text-align: center; }
+      
+      .main .pbp { border-spacing: 0; }
+      .main .pbp td { border: 1px solid lightgray; }
+      .main .pbp .scored { font-weight: bold; }
+	
+      .main .bases { width: 300px; height: 200px; background-color: darkgreen; }
+      .main .bases .gwt-Label { background-color: white; width: 100px; height: 20px; text-align: center; }
+	</ui:style>
+	<g:HTMLPanel tag='table' styleName='{style.main}'>
+	  <tr>
+	    <td class='{style.panel}'><s:TeamPanel ui:field='_vis' location='VISITOR'/>
+	    </td>
+	    <td class='{style.panel}'>
+	      <table>
+	        <tr><td>
+	          <table class='{style.scoreboard}'>
+	            <tr>
+	              <td rowspan='2'><g:Label ui:field='_vScore' styleName='{style.score}'>0</g:Label></td>
+	              <td class='{style.header}'>Inning</td>
+	              <td class='{style.header}'>Outs</td>
+	              <td rowspan='2'><g:Label ui:field='_hScore' styleName='{style.score}'>0</g:Label></td>
+	            </tr>
+	            <tr class='{style.info}'>
+	              <td><g:Label ui:field='_inning'>T1</g:Label></td>
+	              <td><g:Label ui:field='_outs'>0</g:Label></td>
+	            </tr>
+	          </table>
+	        </td></tr>
+	        <tr><td>
+	          <g:AbsolutePanel styleName='{style.bases}'>
+	            <g:at left='100' top='0'>
+	              <g:Label ui:field='_secondBase'/>
+	            </g:at>
+	            <g:at left='0' top='100'>
+	              <g:Label ui:field='_thirdBase'/>
+	            </g:at>
+	            <g:at left='200' top='100'>
+	              <g:Label ui:field='_firstBase'/>
+	            </g:at>
+	          </g:AbsolutePanel>
+	        </td></tr>
+	        <tr><td class='{style.header}'>
+	        Matchup
+	        </td></tr>
+	        <tr><td align='center'>
+	          <g:Button ui:field='_vOpt1' visible='false'>Advance</g:Button>
+	          <g:Button ui:field='_pitch'>Pitch</g:Button>
+	          <g:Button ui:field='_hOpt1' visible='false'>Advance</g:Button>
+	        </td></tr>
+	        <tr><td class='{style.header}'>Play-by-Play</td></tr>
+	        <tr><td>
+	          <g:ScrollPanel height='500px'>
+	            <g:FlexTable styleName='{style.pbp}' ui:field='_playbyplay'/>
+	          </g:ScrollPanel>
+	        </td></tr>
+	      </table>
+	    </td>
+	    <td class='{style.panel}'><s:TeamPanel ui:field='_home' location='HOME'/>
+	    </td>
+	  </tr>
+	</g:HTMLPanel>
+</ui:UiBinder> 

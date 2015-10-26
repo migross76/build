@@ -1,0 +1,23 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+<ui:style>
+  .main { width: 500px; }
+</ui:style>
+<g:HTMLPanel tag='table' styleName='{style.main}'>
+  <tr>
+    <td>League:</td><td><g:ListBox ui:field='_league'/></td>
+  </tr><tr>
+    <td/><td>Visitor</td><td>Home</td>
+  </tr><tr>
+    <td>Team:</td><td><g:ListBox ui:field='_vTeam'/></td><td><g:ListBox ui:field='_hTeam'/></td>
+  </tr><tr>
+    <td>Pitcher:</td><td><g:ListBox ui:field='_vPitch'/></td><td><g:ListBox ui:field='_hPitch'/></td>
+  </tr><tr>
+    <td valign='top'>Batters:</td><td><g:Grid ui:field='_vBat'/></td><td><g:Grid ui:field='_hBat'/></td>
+  </tr><tr>
+    <td/><td><g:Button ui:field='_vAsk'>Ask Bot</g:Button></td><td><g:Button ui:field='_hAsk'>Ask Bot</g:Button></td>
+  </tr>
+  <tr><td colspan='3' align='center'><g:Button ui:field='_play' enabled='false'>Play Ball!</g:Button></td></tr>
+</g:HTMLPanel>
+</ui:UiBinder> 

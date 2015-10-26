@@ -23,7 +23,7 @@ public class BBRefCSV {
     BadLineException(String message) { super(message); }
   }
   
-  private static final int MID_YEAR = 2014;
+  private static final int MID_YEAR = 2015;
   
   private final Fetcher      _fetcher;
   private final Master.Table _master;

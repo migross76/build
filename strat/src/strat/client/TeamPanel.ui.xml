@@ -1,0 +1,47 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style type='strat.client.TeamPanel.MyStyle'>
+		.main { }
+		.main .name { font-weight: bold; font-size: 24px; }
+		.main .header { font-weight: bold; }
+		
+		.main .active { background-color: #8080FF; }
+		.main .inactive { background-color: #D0D0FF; }
+	</ui:style>
+	<g:HTMLPanel tag='table' styleName='{style.main}'>
+      <tr><td class='{style.name}'>
+        <g:Label ui:field='_name'/>
+      </td></tr>
+      <tr><td class='{style.header}'>
+        Lineup
+      </td></tr>
+      <tr><td>
+        <g:Grid ui:field='_lineup'/>
+      </td></tr>
+      <tr><td class='{style.header}'>
+        Bench
+      </td></tr>
+      <tr><td>
+        <g:FlexTable ui:field='_bench'/>
+      </td></tr>
+      <tr><td class='{style.header}'>
+        Replace
+      </td></tr>
+      <tr><td class='{style.header}'>
+        Batting
+      </td></tr>
+      <tr><td class='{style.header}'>
+        Pitching
+      </td></tr>
+      <tr><td>
+        <g:FlexTable ui:field='_pitching'/>
+      </td></tr>
+      <tr><td class='{style.header}'>
+        Bullpen
+      </td></tr>
+      <tr><td>
+        <g:FlexTable ui:field='_bullpen'/>
+      </td></tr>
+	</g:HTMLPanel>
+</ui:UiBinder> 
