@@ -41,6 +41,7 @@ public class HallJamesTourney {
   private static final int AGE_TOURNEY = AGE_ELECT + ELECT_MAX;
   private static final int TEAM_YEAR = 25;
   private static final int YEAR_FIRST = 1926;
+  private static final int YEAR_LAST = 2016;
   
   private static class Player {
     public Master _master;
@@ -100,7 +101,7 @@ public class HallJamesTourney {
     for (Player p : ey._elected) {
       System.out.format("%d\tE\t%s %s\t%d\t%.1f\t%.0f\t%.1f\n", year, p._master.nameFirst(), p._master.nameLast(), p._master.yearBirth(), p._hof_best * 100, p._elo.norm(), p._war.total().war());
     }
-    selections = 1;
+    //selections = 1;
     for (int i = 0; i != selections; ++i) {
       Player p = _eligible.get(i);
       System.out.format("%d\tT\t%s %s\t%d\t%.1f\t%.0f\t%.1f\n", year, p._master.nameFirst(), p._master.nameLast(), p._master.yearBirth(), p._hof_best * 100, p._elo.norm(), p._war.total().war());
@@ -196,7 +197,8 @@ public class HallJamesTourney {
     try (MyDatabase db = new MyDatabase()) {
       hjt = new HallJamesTourney(db);
     }
-    for (int yr = 1926; yr != 2015; ++yr) {
+    System.out.println("Year\tType\tPlayer\tYOB\tHOF%\tELO\tWAR");
+    for (int yr = YEAR_FIRST; yr != YEAR_LAST; ++yr) {
       hjt.select(yr);
     }
   }

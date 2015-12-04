@@ -23,7 +23,7 @@ import data.War;
 // - Allow for different number of electees per year, to support inclusion of players (e.g., integration)
 // - Outputs various slices to Excel format
 public class HallReboot {
-  private static final int CURRENT_YEAR = 2013;
+  private static final int CURRENT_YEAR = 2015;
   
   private static final int AGE_MIN = 46; // age that a player becomes eligible
   private static final int PRINT_KEEP = 5; // the top carryovers to the next ballot
