@@ -42,9 +42,16 @@ public class ELO {
         }
       }
     }
-    
+/*    
     private static double normalizePitcher(int rating) {
       return (rating - 1492) * 1.3 + 1492;
+      //double bwar = 0.000193 * rating * rating - 0.741 * rating + 755.61;
+      //return 0.0377 * bwar * bwar - 3.2892 * bwar + 1936;
+    }
+*/
+    // match so the pitchers are roughly half as many as the batters (at least for the first 100 pitchers)
+    private static double normalizePitcher(int rating) {
+      return 1.4343*rating - 751.14;
       //double bwar = 0.000193 * rating * rating - 0.741 * rating + 755.61;
       //return 0.0377 * bwar * bwar - 3.2892 * bwar + 1936;
     }
